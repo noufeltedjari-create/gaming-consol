@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>روم الألعاب - متجر أجهزة وألعاب الفيديو</title>
+
+  <!-- الخطوط والأيقونات الممتازة -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="rtl">
+
+  <!-- الهيدر (رأس الصفحة) -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="logo" id="site-logo-link" onclick="navigate('home'); return false;">
+        <span id="logo-content">
+          <i class="fas fa-gamepad"></i> <span data-translate="logo_store">كونسول</span><span
+            style="color: var(--neon-cyan);" data-translate="logo_hub">جيمز</span>
+        </span>
+      </a>
+
+      <!-- قائمة الهمبرغر للموبايل -->
+      <div class="menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active" onclick="navigate('home'); return false;"
+              data-translate="nav_home">الرئيسية</a></li>
+          <li><a href="#playstation" onclick="navigate('playstation'); return false;"
+              data-translate="nav_playstation">بلايستيشن</a></li>
+          <li><a href="#xbox" onclick="navigate('xbox'); return false;" data-translate="nav_xbox">إكس بوكس</a></li>
+          <li><a href="#nintendo" onclick="navigate('nintendo'); return false;"
+              data-translate="nav_nintendo">نينتندو</a></li>
+          <li><a href="#games_subs" onclick="navigate('games_subs'); return false;"
+              data-translate="nav_games_subs">ألعاب واشتراكات</a></li>
+          <li><a href="#accessories" onclick="navigate('accessories'); return false;"
+              data-translate="nav_accessories">اكسسوارات</a></li>
+          <li class="mobile-only-link"><a href="seller.html" data-translate="nav_seller">بوابة البائع</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- مفتاح تغيير اللغة -->
+        <button class="icon-btn" onclick="setLanguage(currentLanguage === 'ar' ? 'en' : 'ar')"
+          title="Change Language / تغيير اللغة">
+          <i class="fas fa-globe"></i>
+        </button>
+
+        <!-- زر فتح السلة -->
+        <button class="icon-btn" onclick="toggleCart()" title="Shopping Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="badge" id="cart-badge" style="display: none;">0</span>
+        </button>
+
+        <!-- زر دخول البائع - يفتح صفحة مستقلة -->
+        <a href="seller.html" class="btn-primary nav-seller-btn" target="_self">
+          <i class="fas fa-user-shield"></i>
+          <span class="btn-text" data-translate="nav_seller">بوابة البائع</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- مساحة العمل الرئيسية -->
+  <main class="container" style="padding-top: 40px; padding-bottom: 80px;">
+
+    <!-- ==================== واجهة الصفحة الرئيسية ==================== -->
+    <section id="home-view" class="view-section active">
+      <!-- بانر الترحيب البارز -->
+      <div class="hero">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 data-translate="hero_title">ارتقِ بتجربة <span>الألعاب</span> الخاصة بك</h1>
+            <p data-translate="hero_desc">اكتشف أحدث أجهزة ألعاب الفيديو (الكونسول) والألعاب الحصرية بأفضل الأسعار. خدمة
+              سريعة وتوصيل لكافة الولايات.</p>
+            <div class="hero-buttons">
+              <button class="btn-primary"
+                onclick="document.getElementById('catalog-section').scrollIntoView({behavior: 'smooth'})">
+                <i class="fas fa-shopping-bag"></i> <span data-translate="hero_btn_shop">تسوق الآن</span>
+              </button>
+              <a href="seller.html" class="btn-secondary" style="text-decoration:none;">
+                <i class="fas fa-cog"></i> <span data-translate="hero_btn_seller">بوابة البائع</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-image-glow"></div>
+            <!-- تمثيل افتراضي جميل ليد التحكم SVG كصورة ترحيبية -->
+            <svg class="hero-img" viewBox="0 0 512 512" width="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="controllerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8a2be2" />
+                  <stop offset="100%" stop-color="#00f0ff" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M382 96 H130 C74.8 96 30 140.8 30 196 V316 C30 371.2 74.8 416 130 416 H382 C437.2 416 482 371.2 482 316 V196 C482 140.8 437.2 96 382 96 Z"
+                fill="url(#controllerGrad)" opacity="0.9" />
+              <circle cx="140" cy="256" r="30" fill="#07080d" />
+              <path d="M140 236 V276 M120 256 H160" stroke="#00f0ff" stroke-width="8" stroke-linecap="round" />
+              <circle cx="360" cy="226" r="16" fill="#07080d" /><text x="360" y="231" fill="#ff007f"
+                font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">X</text>
+              <circle cx="396" cy="256" r="16" fill="#07080d" /><text x="396" y="261" fill="#00f0ff"
+                font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">A</text>
+              <circle cx="324" cy="256" r="16" fill="#07080d" /><text x="324" y="261" fill="#39ff14"
+                font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">Y</text>
+              <circle cx="360" cy="286" r="16" fill="#07080d" /><text x="360" y="291" fill="#ffb700"
+                font-family="sans-serif" font-weight="bold" font-size="16" text-anchor="middle">B</text>
+              <rect x="226" y="246" width="24" height="8" rx="4" fill="#07080d" />
+              <rect x="262" y="246" width="24" height="8" rx="4" fill="#07080d" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- بطاقات الوصول السريع للفئات -->
+      <div class="categories-grid">
+        <div class="category-card playstation" onclick="navigate('playstation')">
+          <div class="category-info">
+            <h3 data-translate="nav_playstation">بلايستيشن</h3>
+            <p data-translate="cat_ps_desc">أجهزة PS5 وألعاب حصرية مذهلة</p>
+          </div>
+        </div>
+        <div class="category-card xbox" onclick="navigate('xbox')">
+          <div class="category-info">
+            <h3 data-translate="nav_xbox">إكس بوكس</h3>
+            <p data-translate="cat_xb_desc">أقوى كونسول وألعاب Xbox الجبارة</p>
+          </div>
+        </div>
+        <div class="category-card nintendo" onclick="navigate('nintendo')">
+          <div class="category-info">
+            <h3 data-translate="nav_nintendo">نينتندو</h3>
+            <p data-translate="cat_nt_desc">ألعاب محمولة ومرح عائلي لا ينتهي</p>
+          </div>
+        </div>
+        <div class="category-card games_subs" onclick="navigate('games_subs')">
+          <div class="category-info">
+            <h3 data-translate="nav_games_subs">ألعاب واشتراكات</h3>
+            <p data-translate="cat_gs_desc">اشتراكات ألعاب وبطاقات رقمية</p>
+          </div>
+        </div>
+        <div class="category-card accessories" onclick="navigate('accessories')">
+          <div class="category-info">
+            <h3 data-translate="nav_accessories">اكسسوارات</h3>
+            <p data-translate="cat_ac_desc">سماعات، أيادي تحكم، وإكسسوارات ممتازة</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- هيدر وعلامات تبويب الكتالوج -->
+      <div id="catalog-section" class="section-header">
+        <h2 class="section-title" data-translate="section_featured">أحدث العروض والمنتجات</h2>
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterCatalog('all', this)"
+            data-translate="section_all">الكل</button>
+          <button class="filter-tab" onclick="filterCatalog('console', this)"
+            data-translate="section_consoles">الأجهزة</button>
+          <button class="filter-tab" onclick="filterCatalog('game', this)"
+            data-translate="section_games">الألعاب</button>
+        </div>
+      </div>
+
+      <!-- شبكة عرض المنتجات -->
+      <div class="products-grid" id="catalog-products-grid">
+        <!-- يتم ملؤها بواسطة الجافا سكريبت -->
+      </div>
+    </section>
+
+    <!-- ==================== واجهة بلايستيشن ==================== -->
+    <section id="playstation-view" class="view-section">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="nav_playstation">بلايستيشن</h2>
+      </div>
+      <div class="products-grid" id="playstation-products-grid"></div>
+    </section>
+
+    <!-- ==================== واجهة إكس بوكس ==================== -->
+    <section id="xbox-view" class="view-section">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="nav_xbox">إكس بوكس</h2>
+      </div>
+      <div class="products-grid" id="xbox-products-grid"></div>
+    </section>
+
+    <!-- ==================== واجهة نينتندو ==================== -->
+    <section id="nintendo-view" class="view-section">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="nav_nintendo">نينتندو</h2>
+      </div>
+      <div class="products-grid" id="nintendo-products-grid"></div>
+    </section>
+
+    <!-- ==================== واجهة ألعاب واشتراكات ==================== -->
+    <section id="games_subs-view" class="view-section">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="nav_games_subs">ألعاب واشتراكات</h2>
+      </div>
+      <div class="products-grid" id="games_subs-products-grid"></div>
+    </section>
+
+    <!-- ==================== واجهة الاكسسوارات ==================== -->
+    <section id="accessories-view" class="view-section">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="nav_accessories">اكسسوارات</h2>
+      </div>
+      <div class="products-grid" id="accessories-products-grid"></div>
+    </section>
+
+    <!-- ==================== واجهة البائع أصبحت في seller.html ==================== -->
+
+  </main>
+
+  <!-- ==================== درج سلة المشتريات ==================== -->
+  <div class="cart-drawer-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h2><i class="fas fa-shopping-cart" style="color: var(--neon-cyan);"></i> <span data-translate="cart_title">سلة
+          المشتريات</span> <span id="cart-count-text">(0)</span></h2>
+      <button class="close-btn" onclick="toggleCart()">&times;</button>
+    </div>
+
+    <!-- قائمة عناصر السلة -->
+    <div class="cart-items" id="cart-items-container">
+      <!-- يتم ملؤها بواسطة الجافا سكريبت -->
+    </div>
+
+    <!-- فوتر السلة / الإجماليات -->
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span data-translate="cart_total">المجموع الكلي:</span>
+        <span class="cart-total-val" id="cart-total-value">0 DA</span>
+      </div>
+      <button class="btn-primary checkout-btn" onclick="showCheckoutModal()">
+        <i class="fas fa-cash-register"></i> <span data-translate="cart_checkout">تأكيد الطلبية</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== نافذة تأكيد الطلب المنبثقة ==================== -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 data-translate="checkout_title">إتمام الطلب وتأكيد الشراء</h3>
+        <button class="close-btn" onclick="closeCheckoutModal()">&times;</button>
+      </div>
+      <form id="checkout-form" onsubmit="submitCheckout(event)">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkout-name" data-translate="checkout_name">الاسم الشخصي</label>
+              <input type="text" id="checkout-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="checkout-surname" data-translate="checkout_surname">اللقب (العائلة)</label>
+              <input type="text" id="checkout-surname" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="checkout-phone" data-translate="checkout_phone">رقم الهاتف</label>
+            <input type="tel" id="checkout-phone" class="form-control" placeholder="05XXXXXXXX" required>
+          </div>
+          <div class="form-group">
+            <label for="checkout-state" data-translate="checkout_state">الولاية</label>
+            <select id="checkout-state" class="form-control" required>
+              <!-- يتم ملؤها بواسطة الجافا سكريبت -->
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeCheckoutModal()"
+            data-translate="checkout_cancel">إلغاء</button>
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-check"></i> <span data-translate="checkout_confirm">إرسال وتأكيد الطلبية</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- نافذة إضافة المنتج أصبحت في seller.html -->
+
+  <!-- حاوية إشعارات التنبيه (Toast) -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- الفوتر (تذييل الصفحة) -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="logo" id="footer-logo-link" onclick="navigate('home'); return false;">
+          <span id="footer-logo-content">
+            <i class="fas fa-gamepad"></i> <span data-translate="logo_store">كونسول</span><span
+              style="color: var(--neon-cyan);" data-translate="logo_hub">جيمز</span>
+          </span>
+        </a>
+        <p class="footer-desc" data-translate="hero_desc">اكتشف أحدث أجهزة ألعاب الفيديو (الكونسول) والألعاب الحصرية
+          بأفضل الأسعار. خدمة سريعة وتوصيل لكافة الولايات.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">روابط سريعة</h4>
+        <ul class="footer-links">
+          <li><a href="#home" onclick="navigate('home'); return false;" data-translate="nav_home">الرئيسية</a></li>
+          <li><a href="#playstation" onclick="navigate('playstation'); return false;"
+              data-translate="nav_playstation">بلايستيشن</a></li>
+          <li><a href="#xbox" onclick="navigate('xbox'); return false;" data-translate="nav_xbox">إكس بوكس</a></li>
+          <li><a href="#nintendo" onclick="navigate('nintendo'); return false;"
+              data-translate="nav_nintendo">نينتندو</a></li>
+          <li><a href="#games_subs" onclick="navigate('games_subs'); return false;"
+              data-translate="nav_games_subs">ألعاب واشتراكات</a></li>
+          <li><a href="#accessories" onclick="navigate('accessories'); return false;"
+              data-translate="nav_accessories">اكسسوارات</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">بوابة الإدارة</h4>
+        <ul class="footer-links">
+          <li><a href="seller.html" data-translate="nav_seller">بوابة البائع</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 كونسول جيمز. جميع الحقوق محفوظة.</p>
+      <div style="display: flex; gap: 16px;">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
